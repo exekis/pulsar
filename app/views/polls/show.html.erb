@@ -1,0 +1,15 @@
+<h1><%= @poll.title %></h1>
+<p>Created by <%= @poll.user.email %> on <%= @poll.created_at.to_date %></p>
+
+<% @poll.choices.each do |choice| %>
+  <div>
+    <strong><%= choice.text %></strong> — <%= choice.votes.count %> votes
+    <% if user_signed_in? %>
+      <%= button_to 'Vote', votes_path(choice_id: choice.id), method: :post %>
+    <% end %>
+  </div>
+<% end %>
+
+<hr>
+<%= link_to 'Edit Poll', edit_poll_path(@poll) if user_signed_in? && @poll.user == current_user %> |
+<%= link_to 'Back to Polls', polls_path %>

@@ -34,3 +34,4 @@
 /config/master.key
 .kamal/secrets
 config/credentials.yml.enc
+misc/init.sh

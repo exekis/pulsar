@@ -1,0 +1,30 @@
+<%= form_with(model: poll) do |f| %>
+  <% if poll.errors.any? %>
+    <div class="errors">
+      <h2><%= pluralize(poll.errors.count, "error") %> prevented this poll from saving:</h2>
+      <ul>
+        <% poll.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, required: true %>
+  </div>
+
+  <h3>Choices</h3>
+  <%= f.fields_for :choices do |cf| %>
+    <div>
+      <%= cf.text_field :text, placeholder: 'Choice text', required: true %>
+      <%= cf.check_box :_destroy %>
+      <%= cf.label :_destroy, 'Remove' %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
