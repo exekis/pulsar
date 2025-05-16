@@ -18,7 +18,7 @@ class PollsController < ApplicationController
   def create
     @poll = current_user.polls.build(poll_params)
     if @poll.save
-      redirect_to @poll, notice: 'Poll created.'
+      redirect_to @poll, notice: "Poll created."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class PollsController < ApplicationController
 
   def update
     if @poll.update(poll_params)
-      redirect_to @poll, notice: 'Poll updated.'
+      redirect_to @poll, notice: "Poll updated."
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class PollsController < ApplicationController
 
   def destroy
     @poll.destroy
-    redirect_to polls_path, alert: 'Poll deleted.'
+    redirect_to polls_path, alert: "Poll deleted."
   end
 
   private

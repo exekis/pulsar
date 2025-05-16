@@ -8,6 +8,6 @@ class CreateChoices < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_index :choices, [:poll_id, :text], unique: true
+    add_index :choices, [ :poll_id, :text ], unique: true
   end
 end

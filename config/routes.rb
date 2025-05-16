@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Root path
-  root 'polls#index'
+  root "polls#index"
 
   # Our CRUD routes
   resources :polls

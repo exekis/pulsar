@@ -25,7 +25,7 @@ gem "solid_queue"
 gem "solid_cable"
 
 # install devise
-gem 'devise'
+gem "devise"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     vote   = choice.votes.build(user: current_user)
 
     if vote.save
-      redirect_to poll_path(choice.poll), notice: 'Vote recorded.'
+      redirect_to poll_path(choice.poll), notice: "Vote recorded."
     else
       redirect_to poll_path(choice.poll), alert: vote.errors.full_messages.to_sentence
     end
